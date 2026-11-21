@@ -1,0 +1,2069 @@
+{
+  "schema_version": 1,
+  "through": "2026-11-13T00:00:00+00:00",
+  "deep": true,
+  "competitions": [
+    {
+      "competition": "PL",
+      "historical_matches": 1240,
+      "eligible_matches": 1156,
+      "sources": [
+        {
+          "season": 2023,
+          "url": "https://www.football-data.co.uk/mmz4281/2324/E0.csv",
+          "sha256": "b2e057b0ed959f198b0f63d2391c01239f3608e6de5db68edab3f88e04d07ff3"
+        },
+        {
+          "season": 2024,
+          "url": "https://www.football-data.co.uk/mmz4281/2425/E0.csv",
+          "sha256": "d0c8ce4a96d886cf60cf101f570f4a3893844226f91c7bd769eb568c49edbfa4"
+        },
+        {
+          "season": 2025,
+          "url": "https://www.football-data.co.uk/mmz4281/2526/E0.csv",
+          "sha256": "3e3a8352f9ada6789c508d6ca184424421fed56a30400904a4a327c583407e62"
+        },
+        {
+          "season": 2026,
+          "url": "https://www.football-data.co.uk/mmz4281/2627/E0.csv",
+          "sha256": "d598a5f681e1a9a4acf9dad9fb203b68da6f67e2d195678dbe99e95fbba14593"
+        }
+      ],
+      "folds": [
+        {
+          "train_matches": 935,
+          "calibration_matches": 46,
+          "test_matches": 84,
+          "first_test_cutoff": "2026-03-15T16:00:00+00:00",
+          "last_test_cutoff": "2026-08-21T15:00:00+00:00",
+          "baseline": "Dixon–Coles",
+          "ensemble_lightgbm_weight": 0.14317887775301938,
+          "goals": {
+            "reference": {
+              "log_loss": 1.0345375984590737,
+              "brier": 0.6191028476557927,
+              "rps": 0.21175006495212206,
+              "ece": 0.14188165767726252
+            },
+            "lightgbm": {
+              "log_loss": 1.0285262092039493,
+              "brier": 0.6165968072373709,
+              "rps": 0.21015670500037636,
+              "ece": 0.03728043711652228
+            },
+            "ensemble": {
+              "log_loss": 1.0301913717770457,
+              "brier": 0.6161510780984211,
+              "rps": 0.21032288353521209,
+              "ece": 0.08298441281492287
+            },
+            "gru": {
+              "log_loss": 1.0158129907256856,
+              "brier": 0.6080885598502994,
+              "rps": 0.20471947506847776,
+              "ece": 0.06455310980469403
+            },
+            "gru_clusters": {
+              "log_loss": 1.0145095483758784,
+              "brier": 0.6083046186859199,
+              "rps": 0.2048599516363488,
+              "ece": 0.05069329544817583
+            }
+          },
+          "events": {
+            "corners": {
+              "matches": 84,
+              "threshold": 10,
+              "observed": 48,
+              "poisson_reference": {
+                "brier": 0.24137222327836982,
+                "threshold_log_loss": 0.6756617817594224,
+                "count_nll": 2.6479270573847744,
+                "mae": 2.8277153361344536
+              },
+              "lightgbm_poisson": {
+                "brier": 0.2555332756317305,
+                "threshold_log_loss": 0.7041548190812834,
+                "count_nll": 2.677520750888958,
+                "mae": 2.945066435227125
+              },
+              "lightgbm_negative_binomial": {
+                "brier": 0.25482064108483854,
+                "threshold_log_loss": 0.7027633351871159,
+                "count_nll": 2.6705964617486204,
+                "mae": 2.945066435227125
+              },
+              "gru": {
+                "count_nll": 2.683123601457205,
+                "brier": 0.2504042025333185
+              },
+              "gru_clusters": {
+                "count_nll": 2.674774941088929,
+                "brier": 0.24912538062265246
+              }
+            },
+            "fouls": {
+              "matches": 84,
+              "threshold": 24,
+              "observed": 29,
+              "poisson_reference": {
+                "brier": 0.2197535768225369,
+                "threshold_log_loss": 0.630431227366196,
+                "count_nll": 3.023057256673402,
+                "mae": 3.906627673796792
+              },
+              "lightgbm_poisson": {
+                "brier": 0.2230495665341708,
+                "threshold_log_loss": 0.6376966337264579,
+                "count_nll": 3.0376079557146767,
+                "mae": 3.9609776718831453
+              },
+              "lightgbm_negative_binomial": {
+                "brier": 0.22284645702473188,
+                "threshold_log_loss": 0.6370739256001108,
+                "count_nll": 3.033888658124873,
+                "mae": 3.9609776718831453
+              }
+            },
+            "yellow": {
+              "matches": 84,
+              "threshold": 5,
+              "observed": 23,
+              "poisson_reference": {
+                "brier": 0.2090221994890412,
+                "threshold_log_loss": 0.6097208063255144,
+                "count_nll": 2.097581620584226,
+                "mae": 1.6163182773109246
+              },
+              "lightgbm_poisson": {
+                "brier": 0.21473795078524743,
+                "threshold_log_loss": 0.6183252109714164,
+                "count_nll": 2.100326356614513,
+                "mae": 1.634043312337123
+              },
+              "lightgbm_negative_binomial": {
+                "brier": 0.21379248598077547,
+                "threshold_log_loss": 0.6164949340595582,
+                "count_nll": 2.0981048731211294,
+                "mae": 1.634043312337123
+              }
+            },
+            "red": {
+              "matches": 84,
+              "threshold": 1,
+              "observed": 6,
+              "poisson_reference": {
+                "brier": 0.07212655285133565,
+                "threshold_log_loss": 0.2860346105700467,
+                "count_nll": 0.3277271587687952,
+                "mae": 0.19382575757575754
+              },
+              "lightgbm_poisson": {
+                "brier": 0.0628222726225539,
+                "threshold_log_loss": 0.23629847189974063,
+                "count_nll": 0.2681434480782371,
+                "mae": 0.16512332283682352
+              },
+              "lightgbm_negative_binomial": {
+                "brier": 0.06282857942357285,
+                "threshold_log_loss": 0.23590048574809894,
+                "count_nll": 0.26629604396507717,
+                "mae": 0.16512332283682352
+              },
+              "lightgbm_binary": {
+                "brier": 0.06793069137248578,
+                "threshold_log_loss": 0.25243676566155304
+              }
+            },
+            "shots_on_target": {
+              "matches": 84,
+              "threshold": 9,
+              "observed": 48,
+              "poisson_reference": {
+                "brier": 0.24530394017286158,
+                "threshold_log_loss": 0.6837299597898576,
+                "count_nll": 2.429010491114232,
+                "mae": 2.1689218869365927
+              },
+              "lightgbm_poisson": {
+                "brier": 0.24422715011427898,
+                "threshold_log_loss": 0.681770671026128,
+                "count_nll": 2.415939318101377,
+                "mae": 2.152651789175703
+              },
+              "gru": {
+                "count_nll": 2.4486365037785296,
+                "brier": 0.24854930412488674
+              },
+              "gru_clusters": {
+                "count_nll": 2.4465634040257878,
+                "brier": 0.24972365627487764
+              }
+            }
+          }
+        },
+        {
+          "train_matches": 1023,
+          "calibration_matches": 42,
+          "test_matches": 87,
+          "first_test_cutoff": "2026-08-22T15:00:00+00:00",
+          "last_test_cutoff": "2026-11-07T16:00:00+00:00",
+          "baseline": "Dixon–Coles",
+          "ensemble_lightgbm_weight": 0.19925943183511785,
+          "goals": {
+            "reference": {
+              "log_loss": 1.0211234093038077,
+              "brier": 0.6088003652450563,
+              "rps": 0.20342849278567435,
+              "ece": 0.10382765359535628
+            },
+            "lightgbm": {
+              "log_loss": 1.04417642574125,
+              "brier": 0.6291213321004989,
+              "rps": 0.21188039460595756,
+              "ece": 0.05587045571816645
+            },
+            "ensemble": {
+              "log_loss": 1.0206132692637835,
+              "brier": 0.6093044293948369,
+              "rps": 0.20342877728166028,
+              "ece": 0.10630005456613437
+            },
+            "gru": {
+              "log_loss": 1.0482610548654192,
+              "brier": 0.6313137823171083,
+              "rps": 0.21205450080809826,
+              "ece": 0.04721524194739495
+            },
+            "gru_clusters": {
+              "log_loss": 1.0524953763523366,
+              "brier": 0.6354764075298603,
+              "rps": 0.21368164158273895,
+              "ece": 0.11906191890303838
+            }
+          },
+          "events": {
+            "corners": {
+              "matches": 87,
+              "threshold": 10,
+              "observed": 43,
+              "poisson_reference": {
+                "brier": 0.24594546059859632,
+                "threshold_log_loss": 0.68476336711865,
+                "count_nll": 2.5769475194517275,
+                "mae": 2.608831206952731
+              },
+              "lightgbm_poisson": {
+                "brier": 0.25770771835787093,
+                "threshold_log_loss": 0.7090899199833024,
+                "count_nll": 2.5862143648830993,
+                "mae": 2.658637379761781
+              },
+              "lightgbm_negative_binomial": {
+                "brier": 0.25613246517948496,
+                "threshold_log_loss": 0.7057202976513891,
+                "count_nll": 2.583899057417596,
+                "mae": 2.658637379761781
+              },
+              "gru": {
+                "count_nll": 2.6088546741954635,
+                "brier": 0.2678756097103266
+              },
+              "gru_clusters": {
+                "count_nll": 2.6174954313605427,
+                "brier": 0.275059021485126
+              }
+            },
+            "fouls": {
+              "matches": 87,
+              "threshold": 24,
+              "observed": 39,
+              "poisson_reference": {
+                "brier": 0.25782788104353066,
+                "threshold_log_loss": 0.7104385673530551,
+                "count_nll": 3.051576994489819,
+                "mae": 3.953999533713105
+              },
+              "lightgbm_poisson": {
+                "brier": 0.245763865633973,
+                "threshold_log_loss": 0.6861043562277089,
+                "count_nll": 3.0070338616944046,
+                "mae": 3.7300185402059425
+              },
+              "lightgbm_negative_binomial": {
+                "brier": 0.24521849022285422,
+                "threshold_log_loss": 0.6845230163711452,
+                "count_nll": 3.0116772467534667,
+                "mae": 3.7300185402059425
+              }
+            },
+            "yellow": {
+              "matches": 87,
+              "threshold": 5,
+              "observed": 38,
+              "poisson_reference": {
+                "brier": 0.25454726851472287,
+                "threshold_log_loss": 0.7032608894369269,
+                "count_nll": 2.127814802983107,
+                "mae": 1.6596353973550857
+              },
+              "lightgbm_poisson": {
+                "brier": 0.251878959455584,
+                "threshold_log_loss": 0.6975978557992298,
+                "count_nll": 2.121633581432116,
+                "mae": 1.6418596515536226
+              },
+              "lightgbm_negative_binomial": {
+                "brier": 0.25151914868956343,
+                "threshold_log_loss": 0.6968140786089626,
+                "count_nll": 2.1255075426908228,
+                "mae": 1.6418596515536226
+              }
+            },
+            "red": {
+              "matches": 87,
+              "threshold": 1,
+              "observed": 17,
+              "poisson_reference": {
+                "brier": 0.16530761397494645,
+                "threshold_log_loss": 0.5315705527180606,
+                "count_nll": 0.5757978058652663,
+                "mae": 0.28754273828383947
+              },
+              "lightgbm_poisson": {
+                "brier": 0.1652339266079006,
+                "threshold_log_loss": 0.5344352118533912,
+                "count_nll": 0.5801541167878148,
+                "mae": 0.272879543336912
+              },
+              "lightgbm_negative_binomial": {
+                "brier": 0.16590536521255947,
+                "threshold_log_loss": 0.5379215771943617,
+                "count_nll": 0.5855410847821804,
+                "mae": 0.272879543336912
+              },
+              "lightgbm_binary": {
+                "brier": 0.16957029507844337,
+                "threshold_log_loss": 0.5711138595614224
+              }
+            },
+            "shots_on_target": {
+              "matches": 87,
+              "threshold": 9,
+              "observed": 41,
+              "poisson_reference": {
+                "brier": 0.2625359560012741,
+                "threshold_log_loss": 0.7186613892947079,
+                "count_nll": 2.6336215231246594,
+                "mae": 2.772557401040438
+              },
+              "lightgbm_poisson": {
+                "brier": 0.2588735179223516,
+                "threshold_log_loss": 0.7117519066903555,
+                "count_nll": 2.5928512708683837,
+                "mae": 2.6958371260905056
+              },
+              "gru": {
+                "count_nll": 2.5947355428971344,
+                "brier": 0.2519061335767988
+              },
+              "gru_clusters": {
+                "count_nll": 2.6001865104328563,
+                "brier": 0.25314925881958666
+              }
+            }
+          }
+        }
+      ],
+      "decision": "experimental",
+      "availability": "reconstructed_day_minus_8h_previous_results_next_day_noon",
+      "paired_log_loss": {
+        "lightgbm": {
+          "delta": 0.00877576451828663,
+          "interval95": [
+            -0.026345921864953013,
+            0.0481541082725388
+          ],
+          "candidate": false
+        },
+        "ensemble": {
+          "delta": -0.0023945334782015533,
+          "interval95": [
+            -0.00905910170042651,
+            0.004727484812575483
+          ],
+          "candidate": false
+        },
+        "gru": {
+          "delta": 0.004608819381611751,
+          "interval95": [
+            -0.03585071711338128,
+            0.04849073702799907
+          ],
+          "candidate": false
+        },
+        "gru_clusters": {
+          "delta": 0.006122835825927272,
+          "interval95": [
+            -0.03359458426437629,
+            0.047813591477324856
+          ],
+          "candidate": false
+        }
+      },
+      "retrospective_candidate": false
+    },
+    {
+      "competition": "PD",
+      "historical_matches": 1259,
+      "eligible_matches": 1168,
+      "sources": [
+        {
+          "season": 2023,
+          "url": "https://www.football-data.co.uk/mmz4281/2324/SP1.csv",
+          "sha256": "5323f596c7ed318e4bce95557a369d809d98501fa499ea5f41350cd45cf3c7d9"
+        },
+        {
+          "season": 2024,
+          "url": "https://www.football-data.co.uk/mmz4281/2425/SP1.csv",
+          "sha256": "c086e96d6a53f6e6c0fce4e35db0d1728c773b4362323da0161a34769e315a36"
+        },
+        {
+          "season": 2025,
+          "url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
+          "sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5"
+        },
+        {
+          "season": 2026,
+          "url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
+          "sha256": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828"
+        }
+      ],
+      "folds": [
+        {
+          "train_matches": 978,
+          "calibration_matches": 36,
+          "test_matches": 71,
+          "first_test_cutoff": "2026-05-03T14:00:00+00:00",
+          "last_test_cutoff": "2026-09-06T14:00:00+00:00",
+          "baseline": "Dixon–Coles",
+          "ensemble_lightgbm_weight": 5.9608609865491405e-06,
+          "goals": {
+            "reference": {
+              "log_loss": 1.0252076677482467,
+              "brier": 0.6113909123798177,
+              "rps": 0.21867829855172435,
+              "ece": 0.09183254701670815
+            },
+            "lightgbm": {
+              "log_loss": 1.047853490282732,
+              "brier": 0.6268917219194248,
+              "rps": 0.22339140816394315,
+              "ece": 0.04644686790248471
+            },
+            "ensemble": {
+              "log_loss": 1.0252076718156045,
+              "brier": 0.6113909042326819,
+              "rps": 0.2186782799871623,
+              "ece": 0.09183236096747827
+            },
+            "gru": {
+              "log_loss": 1.0342720237381924,
+              "brier": 0.6191180864388367,
+              "rps": 0.22123273203289293,
+              "ece": 0.09968897954497866
+            },
+            "gru_clusters": {
+              "log_loss": 1.0366785327048256,
+              "brier": 0.6195282650589279,
+              "rps": 0.22105007971849633,
+              "ece": 0.11329738364038282
+            }
+          },
+          "events": {
+            "corners": {
+              "matches": 71,
+              "threshold": 10,
+              "observed": 37,
+              "poisson_reference": {
+                "brier": 0.2454681447810267,
+                "threshold_log_loss": 0.6839671213963829,
+                "count_nll": 2.888432845366499,
+                "mae": 3.185997940608889
+              },
+              "lightgbm_poisson": {
+                "brier": 0.2542525818013091,
+                "threshold_log_loss": 0.702248062847971,
+                "count_nll": 2.920001959906994,
+                "mae": 3.248748054562531
+              },
+              "lightgbm_negative_binomial": {
+                "brier": 0.25418834603164037,
+                "threshold_log_loss": 0.702016134373821,
+                "count_nll": 2.875480740245354,
+                "mae": 3.248748054562531
+              },
+              "gru": {
+                "count_nll": 2.8834842621436683,
+                "brier": 0.2454514253074793
+              },
+              "gru_clusters": {
+                "count_nll": 2.879051242288648,
+                "brier": 0.2438992046963087
+              }
+            },
+            "fouls": {
+              "matches": 71,
+              "threshold": 24,
+              "observed": 42,
+              "poisson_reference": {
+                "brier": 0.2269614539600181,
+                "threshold_log_loss": 0.6446293202127462,
+                "count_nll": 3.214295331446019,
+                "mae": 4.707247472565454
+              },
+              "lightgbm_poisson": {
+                "brier": 0.20700488016684446,
+                "threshold_log_loss": 0.5997231825532953,
+                "count_nll": 3.1283237269664896,
+                "mae": 4.380216640938861
+              },
+              "lightgbm_negative_binomial": {
+                "brier": 0.20841936618284868,
+                "threshold_log_loss": 0.6040025018623196,
+                "count_nll": 3.118136549873046,
+                "mae": 4.380216640938861
+              }
+            },
+            "yellow": {
+              "matches": 71,
+              "threshold": 5,
+              "observed": 27,
+              "poisson_reference": {
+                "brier": 0.2451433362863409,
+                "threshold_log_loss": 0.6833206435862819,
+                "count_nll": 2.287163726766559,
+                "mae": 2.0110917293124806
+              },
+              "lightgbm_poisson": {
+                "brier": 0.24022219799372369,
+                "threshold_log_loss": 0.6727806994574871,
+                "count_nll": 2.259486626742723,
+                "mae": 1.977310919287839
+              },
+              "lightgbm_negative_binomial": {
+                "brier": 0.23855011582873675,
+                "threshold_log_loss": 0.6694091291221033,
+                "count_nll": 2.2379323523671175,
+                "mae": 1.977310919287839
+              }
+            },
+            "red": {
+              "matches": 71,
+              "threshold": 1,
+              "observed": 16,
+              "poisson_reference": {
+                "brier": 0.17481545894488995,
+                "threshold_log_loss": 0.5348379211915992,
+                "count_nll": 0.627492401230946,
+                "mae": 0.37900123131426594
+              },
+              "lightgbm_poisson": {
+                "brier": 0.1843218155722508,
+                "threshold_log_loss": 0.5698877208999283,
+                "count_nll": 0.6528695073026799,
+                "mae": 0.3900619678413467
+              },
+              "lightgbm_negative_binomial": {
+                "brier": 0.1840691481584938,
+                "threshold_log_loss": 0.5694929306137005,
+                "count_nll": 0.6529328522303814,
+                "mae": 0.3900619678413467
+              },
+              "lightgbm_binary": {
+                "brier": 0.1825199374431557,
+                "threshold_log_loss": 0.5779502917849707
+              }
+            },
+            "shots_on_target": {
+              "matches": 71,
+              "threshold": 9,
+              "observed": 41,
+              "poisson_reference": {
+                "brier": 0.2514118837606238,
+                "threshold_log_loss": 0.6961062240937214,
+                "count_nll": 2.648990695198229,
+                "mae": 2.6781204095740088
+              },
+              "lightgbm_poisson": {
+                "brier": 0.2472178484109147,
+                "threshold_log_loss": 0.6879871744495781,
+                "count_nll": 2.6658430246925158,
+                "mae": 2.6662435856015856
+              },
+              "lightgbm_negative_binomial": {
+                "brier": 0.24787387214419043,
+                "threshold_log_loss": 0.6891794288360495,
+                "count_nll": 2.651494153966563,
+                "mae": 2.6662435856015856
+              },
+              "gru": {
+                "count_nll": 2.6492964088875737,
+                "brier": 0.2375304306948158
+              },
+              "gru_clusters": {
+                "count_nll": 2.6625672917542453,
+                "brier": 0.23722593815764326
+              }
+            }
+          }
+        },
+        {
+          "train_matches": 1067,
+          "calibration_matches": 25,
+          "test_matches": 75,
+          "first_test_cutoff": "2026-09-10T14:00:00+00:00",
+          "last_test_cutoff": "2026-11-07T15:00:00+00:00",
+          "baseline": "Dixon–Coles",
+          "ensemble_lightgbm_weight": 5.9608609865491405e-06,
+          "goals": {
+            "reference": {
+              "log_loss": 0.8994850539503939,
+              "brier": 0.5274478015360252,
+              "rps": 0.17674049732434488,
+              "ece": 0.0872499373141197
+            },
+            "lightgbm": {
+              "log_loss": 0.9574826045816407,
+              "brier": 0.562685844901333,
+              "rps": 0.19503699709003697,
+              "ece": 0.06694238202444362
+            },
+            "ensemble": {
+              "log_loss": 0.8994852938872033,
+              "brier": 0.5274479198448032,
+              "rps": 0.17674056419441458,
+              "ece": 0.08724999424824453
+            },
+            "gru": {
+              "log_loss": 0.923052135468429,
+              "brier": 0.5385799793070357,
+              "rps": 0.18410424659501104,
+              "ece": 0.0945395249273718
+            },
+            "gru_clusters": {
+              "log_loss": 0.9185558432292261,
+              "brier": 0.5351311918525025,
+              "rps": 0.18170817170772882,
+              "ece": 0.1231006472157468
+            }
+          },
+          "events": {
+            "corners": {
+              "matches": 75,
+              "threshold": 10,
+              "observed": 35,
+              "poisson_reference": {
+                "brier": 0.24565858873745441,
+                "threshold_log_loss": 0.6842066984050359,
+                "count_nll": 2.6675922078382475,
+                "mae": 2.8849662709569928
+              },
+              "lightgbm_poisson": {
+                "brier": 0.2686168182601474,
+                "threshold_log_loss": 0.7310464882893163,
+                "count_nll": 2.727920787379001,
+                "mae": 3.055172025659259
+              },
+              "lightgbm_negative_binomial": {
+                "brier": 0.2659546951190675,
+                "threshold_log_loss": 0.7255388128119942,
+                "count_nll": 2.7037340812300283,
+                "mae": 3.055172025659259
+              },
+              "gru": {
+                "count_nll": 2.6910017911079747,
+                "brier": 0.25092800646552393
+              },
+              "gru_clusters": {
+                "count_nll": 2.7341481148693068,
+                "brier": 0.2639827032011948
+              }
+            },
+            "fouls": {
+              "matches": 75,
+              "threshold": 24,
+              "observed": 43,
+              "poisson_reference": {
+                "brier": 0.24253350157358994,
+                "threshold_log_loss": 0.678918063496364,
+                "count_nll": 3.102442937893782,
+                "mae": 4.310842721024679
+              },
+              "lightgbm_poisson": {
+                "brier": 0.23025712833974035,
+                "threshold_log_loss": 0.6534993486522632,
+                "count_nll": 3.077689951241086,
+                "mae": 4.235712206838682
+              },
+              "lightgbm_negative_binomial": {
+                "brier": 0.2302265474408724,
+                "threshold_log_loss": 0.6530126236916565,
+                "count_nll": 3.0745033936106507,
+                "mae": 4.235712206838682
+              }
+            },
+            "yellow": {
+              "matches": 75,
+              "threshold": 5,
+              "observed": 37,
+              "poisson_reference": {
+                "brier": 0.24738205568492797,
+                "threshold_log_loss": 0.6877787227368701,
+                "count_nll": 2.1423762114160465,
+                "mae": 1.6484606060606064
+              },
+              "lightgbm_poisson": {
+                "brier": 0.2527377095571102,
+                "threshold_log_loss": 0.7030030087898982,
+                "count_nll": 2.1583856871529203,
+                "mae": 1.6840951193959155
+              },
+              "lightgbm_negative_binomial": {
+                "brier": 0.2528520191513972,
+                "threshold_log_loss": 0.7025810853792038,
+                "count_nll": 2.1724359081380666,
+                "mae": 1.6840951193959155
+              }
+            },
+            "red": {
+              "matches": 75,
+              "threshold": 1,
+              "observed": 17,
+              "poisson_reference": {
+                "brier": 0.17545667762019743,
+                "threshold_log_loss": 0.5376921539562375,
+                "count_nll": 0.6242794593397782,
+                "mae": 0.38392064979693846
+              },
+              "lightgbm_poisson": {
+                "brier": 0.17881099892030514,
+                "threshold_log_loss": 0.543343645393898,
+                "count_nll": 0.6277954922837873,
+                "mae": 0.3780549262270313
+              },
+              "lightgbm_negative_binomial": {
+                "brier": 0.17877276191478222,
+                "threshold_log_loss": 0.5435083818152354,
+                "count_nll": 0.6284529959206883,
+                "mae": 0.3780549262270313
+              },
+              "lightgbm_binary": {
+                "brier": 0.17194975353434724,
+                "threshold_log_loss": 0.5254710567209132
+              }
+            },
+            "shots_on_target": {
+              "matches": 75,
+              "threshold": 9,
+              "observed": 42,
+              "poisson_reference": {
+                "brier": 0.2585188844868018,
+                "threshold_log_loss": 0.711452410610668,
+                "count_nll": 2.59397925922923,
+                "mae": 2.5379225606581275
+              },
+              "lightgbm_poisson": {
+                "brier": 0.2518561767857252,
+                "threshold_log_loss": 0.6965696916313885,
+                "count_nll": 2.5706728572917026,
+                "mae": 2.5038871940536076
+              },
+              "lightgbm_negative_binomial": {
+                "brier": 0.25206785148799166,
+                "threshold_log_loss": 0.697132050065096,
+                "count_nll": 2.569505412718476,
+                "mae": 2.5038871940536076
+              },
+              "gru": {
+                "count_nll": 2.561568394060936,
+                "brier": 0.24990020543763103
+              },
+              "gru_clusters": {
+                "count_nll": 2.5579062936047974,
+                "brier": 0.25426511885840497
+              }
+            }
+          }
+        }
+      ],
+      "decision": "experimental",
+      "availability": "reconstructed_day_minus_8h_previous_results_next_day_noon",
+      "paired_log_loss": {
+        "lightgbm": {
+          "delta": 0.04080595683076679,
+          "interval95": [
+            0.01506500819660064,
+            0.06846026110988788
+          ],
+          "candidate": false
+        },
+        "ensemble": {
+          "delta": 1.2523317193931142e-07,
+          "interval95": [
+            -3.038195119813173e-08,
+            2.7656898864746937e-07
+          ],
+          "candidate": false
+        },
+        "gru": {
+          "delta": 0.016514386226977904,
+          "interval95": [
+            -0.012885702391803745,
+            0.04557747213733191
+          ],
+          "candidate": false
+        },
+        "gru_clusters": {
+          "delta": 0.015374935670065058,
+          "interval95": [
+            -0.013429543138313502,
+            0.041187918096397415
+          ],
+          "candidate": false
+        }
+      },
+      "retrospective_candidate": false
+    },
+    {
+      "competition": "SA",
+      "historical_matches": 1250,
+      "eligible_matches": 1175,
+      "sources": [
+        {
+          "season": 2023,
+          "url": "https://www.football-data.co.uk/mmz4281/2324/I1.csv",
+          "sha256": "343a89db026fe4204ebeabd663cdfee8d02a45457828fc1cb63fa630ca170723"
+        },
+        {
+          "season": 2024,
+          "url": "https://www.football-data.co.uk/mmz4281/2425/I1.csv",
+          "sha256": "79d87a5b18771e066ac7419b7876bfd9771a68ca117a9712375d6bc9685abee3"
+        },
+        {
+          "season": 2025,
+          "url": "https://www.football-data.co.uk/mmz4281/2526/I1.csv",
+          "sha256": "709ae279617d16af226312bcceac941e71241745ddaf950bdac2b83afad4fcbb"
+        },
+        {
+          "season": 2026,
+          "url": "https://www.football-data.co.uk/mmz4281/2627/I1.csv",
+          "sha256": "91f517fedb41215a32e80faa8f4ec44e26d970e557c6c120a664686dbc4d22f0"
+        }
+      ],
+      "folds": [
+        {
+          "train_matches": 955,
+          "calibration_matches": 40,
+          "test_matches": 89,
+          "first_test_cutoff": "2026-04-10T14:00:00+00:00",
+          "last_test_cutoff": "2026-08-30T14:00:00+00:00",
+          "baseline": "Dixon–Coles",
+          "ensemble_lightgbm_weight": 5.9608609865491405e-06,
+          "goals": {
+            "reference": {
+              "log_loss": 0.9844876860102985,
+              "brier": 0.5876158223519796,
+              "rps": 0.20660910599712926,
+              "ece": 0.16183267215369943
+            },
+            "lightgbm": {
+              "log_loss": 0.9822300587766598,
+              "brier": 0.5829043189916552,
+              "rps": 0.20441783756230603,
+              "ece": 0.08386857156632575
+            },
+            "ensemble": {
+              "log_loss": 0.9844875665120405,
+              "brier": 0.5876157310628786,
+              "rps": 0.2066090657463312,
+              "ece": 0.16183249023843355
+            },
+            "gru": {
+              "log_loss": 0.9731496513763414,
+              "brier": 0.5823638939869598,
+              "rps": 0.20463464295626904,
+              "ece": 0.15000952754726718
+            },
+            "gru_clusters": {
+              "log_loss": 0.9599581885244761,
+              "brier": 0.572026184064733,
+              "rps": 0.20132974211712468,
+              "ece": 0.0997001425463895
+            }
+          },
+          "events": {
+            "corners": {
+              "matches": 89,
+              "threshold": 10,
+              "observed": 37,
+              "poisson_reference": {
+                "brier": 0.23856165898726286,
+                "threshold_log_loss": 0.6699250213014292,
+                "count_nll": 2.621381986084628,
+                "mae": 2.7939514824401437
+              },
+              "lightgbm_poisson": {
+                "brier": 0.25364105799754333,
+                "threshold_log_loss": 0.702010683861537,
+                "count_nll": 2.667078413088681,
+                "mae": 2.912120206349028
+              },
+              "lightgbm_negative_binomial": {
+                "brier": 0.25167913933498864,
+                "threshold_log_loss": 0.6976540052177974,
+                "count_nll": 2.644342501506925,
+                "mae": 2.912120206349028
+              },
+              "gru": {
+                "count_nll": 2.6796004827338304,
+                "brier": 0.26200918683485064
+              },
+              "gru_clusters": {
+                "count_nll": 2.7032147478541306,
+                "brier": 0.26496965571786674
+              }
+            },
+            "fouls": {
+              "matches": 89,
+              "threshold": 24,
+              "observed": 39,
+              "poisson_reference": {
+                "brier": 0.27021569882728835,
+                "threshold_log_loss": 0.7348592211378996,
+                "count_nll": 3.1595235571503464,
+                "mae": 4.641884081416554
+              },
+              "lightgbm_poisson": {
+                "brier": 0.2572123474039837,
+                "threshold_log_loss": 0.7174651021674876,
+                "count_nll": 3.1521968960982103,
+                "mae": 4.5962240544466
+              },
+              "lightgbm_negative_binomial": {
+                "brier": 0.25347957342536237,
+                "threshold_log_loss": 0.7058368277407489,
+                "count_nll": 3.1282236047853673,
+                "mae": 4.5962240544466
+              }
+            },
+            "yellow": {
+              "matches": 89,
+              "threshold": 5,
+              "observed": 21,
+              "poisson_reference": {
+                "brier": 0.19321921733020367,
+                "threshold_log_loss": 0.5762987775143678,
+                "count_nll": 2.037402628120519,
+                "mae": 1.5268273133713748
+              },
+              "lightgbm_poisson": {
+                "brier": 0.1881773785376887,
+                "threshold_log_loss": 0.5634465631401413,
+                "count_nll": 2.02909373753036,
+                "mae": 1.5140713324968547
+              }
+            },
+            "red": {
+              "matches": 89,
+              "threshold": 1,
+              "observed": 10,
+              "poisson_reference": {
+                "brier": 0.10294410885047983,
+                "threshold_log_loss": 0.3628454366838098,
+                "count_nll": 0.508734199695176,
+                "mae": 0.3050523560209424
+              },
+              "lightgbm_poisson": {
+                "brier": 0.10477464215190278,
+                "threshold_log_loss": 0.36690791216548946,
+                "count_nll": 0.5238287332424385,
+                "mae": 0.2852931457593579
+              },
+              "lightgbm_negative_binomial": {
+                "brier": 0.10347867499880327,
+                "threshold_log_loss": 0.36370363695883523,
+                "count_nll": 0.4961521274189704,
+                "mae": 0.2852931457593579
+              },
+              "lightgbm_binary": {
+                "brier": 0.10010036253290776,
+                "threshold_log_loss": 0.3606323985859634
+              }
+            },
+            "shots_on_target": {
+              "matches": 89,
+              "threshold": 9,
+              "observed": 39,
+              "poisson_reference": {
+                "brier": 0.2496910128478959,
+                "threshold_log_loss": 0.6923757647812465,
+                "count_nll": 2.421061503149283,
+                "mae": 2.271499499970586
+              },
+              "lightgbm_poisson": {
+                "brier": 0.24281191300670513,
+                "threshold_log_loss": 0.6773086664749117,
+                "count_nll": 2.404128754938682,
+                "mae": 2.226126495777437
+              },
+              "lightgbm_negative_binomial": {
+                "brier": 0.24263728079435734,
+                "threshold_log_loss": 0.6769987111593987,
+                "count_nll": 2.409346867592673,
+                "mae": 2.226126495777437
+              },
+              "gru": {
+                "count_nll": 2.4281745370866803,
+                "brier": 0.25645436236643987
+              },
+              "gru_clusters": {
+                "count_nll": 2.415823827950385,
+                "brier": 0.24857540139306594
+              }
+            }
+          }
+        },
+        {
+          "train_matches": 1035,
+          "calibration_matches": 50,
+          "test_matches": 90,
+          "first_test_cutoff": "2026-09-03T14:00:00+00:00",
+          "last_test_cutoff": "2026-11-07T15:00:00+00:00",
+          "baseline": "Dixon–Coles",
+          "ensemble_lightgbm_weight": 0.9999940391390134,
+          "goals": {
+            "reference": {
+              "log_loss": 0.9579384938141706,
+              "brier": 0.5636199583795358,
+              "rps": 0.20154974226392086,
+              "ece": 0.06442642039305953
+            },
+            "lightgbm": {
+              "log_loss": 0.976694631923383,
+              "brier": 0.5722381830667733,
+              "rps": 0.20681798176802563,
+              "ece": 0.06737051353326
+            },
+            "ensemble": {
+              "log_loss": 0.9766943096814666,
+              "brier": 0.5722380074589354,
+              "rps": 0.2068178936046209,
+              "ece": 0.06737048207178033
+            },
+            "gru": {
+              "log_loss": 0.925763075766977,
+              "brier": 0.5368826750116076,
+              "rps": 0.1931660217751763,
+              "ece": 0.0887279000987421
+            },
+            "gru_clusters": {
+              "log_loss": 0.9281190430540059,
+              "brier": 0.5421752003018879,
+              "rps": 0.19477855268944202,
+              "ece": 0.07643573462666624
+            }
+          },
+          "events": {
+            "corners": {
+              "matches": 90,
+              "threshold": 10,
+              "observed": 43,
+              "poisson_reference": {
+                "brier": 0.24012230010728017,
+                "threshold_log_loss": 0.6733766309516044,
+                "count_nll": 2.7350833654774873,
+                "mae": 2.9108278314546427
+              },
+              "lightgbm_poisson": {
+                "brier": 0.27276546482817055,
+                "threshold_log_loss": 0.7409812002033561,
+                "count_nll": 2.845238526559556,
+                "mae": 3.1938729140600066
+              },
+              "lightgbm_negative_binomial": {
+                "brier": 0.26923974860531547,
+                "threshold_log_loss": 0.7331243987479908,
+                "count_nll": 2.797944295155005,
+                "mae": 3.1938729140600066
+              },
+              "gru": {
+                "count_nll": 2.8359416286809633,
+                "brier": 0.270917788657992
+              },
+              "gru_clusters": {
+                "count_nll": 2.8191259393648793,
+                "brier": 0.27143436331918674
+              }
+            },
+            "fouls": {
+              "matches": 90,
+              "threshold": 24,
+              "observed": 33,
+              "poisson_reference": {
+                "brier": 0.25414330299181476,
+                "threshold_log_loss": 0.7016935172578299,
+                "count_nll": 3.189813157305015,
+                "mae": 4.640705381105745
+              },
+              "lightgbm_poisson": {
+                "brier": 0.22083675189154298,
+                "threshold_log_loss": 0.6328782731977822,
+                "count_nll": 3.0762454883924053,
+                "mae": 4.210789371449923
+              },
+              "lightgbm_negative_binomial": {
+                "brier": 0.22040030744623962,
+                "threshold_log_loss": 0.631942522005994,
+                "count_nll": 3.06116539285955,
+                "mae": 4.210789371449923
+              }
+            },
+            "yellow": {
+              "matches": 90,
+              "threshold": 5,
+              "observed": 28,
+              "poisson_reference": {
+                "brier": 0.21919328344395966,
+                "threshold_log_loss": 0.6317046097818005,
+                "count_nll": 2.0662631263159765,
+                "mae": 1.6522858293075688
+              },
+              "lightgbm_poisson": {
+                "brier": 0.21273923967365063,
+                "threshold_log_loss": 0.6160929902715485,
+                "count_nll": 2.0345887156997478,
+                "mae": 1.5830434696457856
+              }
+            },
+            "red": {
+              "matches": 90,
+              "threshold": 1,
+              "observed": 10,
+              "poisson_reference": {
+                "brier": 0.10095508717417548,
+                "threshold_log_loss": 0.3574202606371931,
+                "count_nll": 0.36564571348808733,
+                "mae": 0.2277237654320988
+              },
+              "lightgbm_poisson": {
+                "brier": 0.10369844724779465,
+                "threshold_log_loss": 0.3673807769591869,
+                "count_nll": 0.3749947305280522,
+                "mae": 0.22579142699494956
+              },
+              "lightgbm_negative_binomial": {
+                "brier": 0.10252440849133114,
+                "threshold_log_loss": 0.3641479715449627,
+                "count_nll": 0.3778566043909055,
+                "mae": 0.22579142699494956
+              },
+              "lightgbm_binary": {
+                "brier": 0.10382554475682239,
+                "threshold_log_loss": 0.3686286514908601
+              }
+            },
+            "shots_on_target": {
+              "matches": 90,
+              "threshold": 9,
+              "observed": 60,
+              "poisson_reference": {
+                "brier": 0.25891713513823505,
+                "threshold_log_loss": 0.7116838994444883,
+                "count_nll": 2.7611346393279215,
+                "mae": 3.050436325818572
+              },
+              "lightgbm_poisson": {
+                "brier": 0.3124178638051201,
+                "threshold_log_loss": 0.8231443494683349,
+                "count_nll": 2.935978946787512,
+                "mae": 3.3613891992560103
+              },
+              "lightgbm_negative_binomial": {
+                "brier": 0.31126344176638476,
+                "threshold_log_loss": 0.8204824166853486,
+                "count_nll": 2.9093198638940345,
+                "mae": 3.3613891992560103
+              },
+              "gru": {
+                "count_nll": 2.7818151219785956,
+                "brier": 0.2692239902058252
+              },
+              "gru_clusters": {
+                "count_nll": 2.8653001081253375,
+                "brier": 0.2902892469586152
+              }
+            }
+          }
+        }
+      ],
+      "decision": "experimental",
+      "availability": "reconstructed_day_minus_8h_previous_results_next_day_noon",
+      "paired_log_loss": {
+        "lightgbm": {
+          "delta": 0.008307953106342365,
+          "interval95": [
+            -0.026414663467419316,
+            0.04151690970690768
+          ],
+          "candidate": false
+        },
+        "ensemble": {
+          "delta": 0.009430239065428463,
+          "interval95": [
+            -0.020241316137003112,
+            0.03834569869885434
+          ],
+          "candidate": false
+        },
+        "gru": {
+          "delta": -0.02181493132217649,
+          "interval95": [
+            -0.06967451072729265,
+            0.025617511812387164
+          ],
+          "candidate": false
+        },
+        "gru_clusters": {
+          "delta": -0.02718925052878776,
+          "interval95": [
+            -0.07028569023371772,
+            0.015643785852001383
+          ],
+          "candidate": false
+        }
+      },
+      "retrospective_candidate": false
+    },
+    {
+      "competition": "BL1",
+      "historical_matches": 999,
+      "eligible_matches": 925,
+      "sources": [
+        {
+          "season": 2023,
+          "url": "https://www.football-data.co.uk/mmz4281/2324/D1.csv",
+          "sha256": "1de8bc12a133dbbf71bc6ffda62082642f087f61b1b7c15ae9f2d320876fb07e"
+        },
+        {
+          "season": 2024,
+          "url": "https://www.football-data.co.uk/mmz4281/2425/D1.csv",
+          "sha256": "a295c58033cfe6393cbbc28f7db85671839b960c5f1153fd3678e20ad2adb92e"
+        },
+        {
+          "season": 2025,
+          "url": "https://www.football-data.co.uk/mmz4281/2526/D1.csv",
+          "sha256": "618301a4b39918225a8ccc57f0f839d675e1abd92fa3a3ccd9a67acd7c79dd7f"
+        },
+        {
+          "season": 2026,
+          "url": "https://www.football-data.co.uk/mmz4281/2627/D1.csv",
+          "sha256": "85b5ff5199866f452016473e927ff2431c05c7b2ae045b5edd3b7f5bb5847d2a"
+        }
+      ],
+      "folds": [
+        {
+          "train_matches": 701,
+          "calibration_matches": 39,
+          "test_matches": 93,
+          "first_test_cutoff": "2026-02-14T15:00:00+00:00",
+          "last_test_cutoff": "2026-05-02T14:00:00+00:00",
+          "baseline": "Dixon–Coles",
+          "ensemble_lightgbm_weight": 5.9608609865491405e-06,
+          "goals": {
+            "reference": {
+              "log_loss": 1.0090713513017666,
+              "brier": 0.6017478957164035,
+              "rps": 0.19477025935988618,
+              "ece": 0.07467798884328941
+            },
+            "lightgbm": {
+              "log_loss": 1.036910546719481,
+              "brier": 0.6213162842325488,
+              "rps": 0.20196507233285815,
+              "ece": 0.11368052216950938
+            },
+            "ensemble": {
+              "log_loss": 1.0090712886208062,
+              "brier": 0.6017478721471413,
+              "rps": 0.19477023992528475,
+              "ece": 0.07467804426632658
+            },
+            "gru": {
+              "log_loss": 1.0596311839861203,
+              "brier": 0.6391165154125427,
+              "rps": 0.21092666337848345,
+              "ece": 0.07182454851982484
+            },
+            "gru_clusters": {
+              "log_loss": 1.0567967451132296,
+              "brier": 0.6363608932350837,
+              "rps": 0.2104381683341,
+              "ece": 0.098482364880385
+            }
+          },
+          "events": {
+            "corners": {
+              "matches": 93,
+              "threshold": 10,
+              "observed": 47,
+              "poisson_reference": {
+                "brier": 0.26341196164941705,
+                "threshold_log_loss": 0.720749177352045,
+                "count_nll": 2.751301746265407,
+                "mae": 3.0295833333333344
+              },
+              "lightgbm_poisson": {
+                "brier": 0.22752169140085174,
+                "threshold_log_loss": 0.6471801542370317,
+                "count_nll": 2.6605897596164088,
+                "mae": 2.7502701301996537
+              },
+              "lightgbm_negative_binomial": {
+                "brier": 0.2286611951481826,
+                "threshold_log_loss": 0.6496183986527012,
+                "count_nll": 2.6536739534964093,
+                "mae": 2.7502701301996537
+              },
+              "gru": {
+                "count_nll": 2.65953263996573,
+                "brier": 0.234984048770373
+              },
+              "gru_clusters": {
+                "count_nll": 2.6606025770106663,
+                "brier": 0.23391456597365673
+              }
+            },
+            "fouls": {
+              "matches": 93,
+              "threshold": 24,
+              "observed": 22,
+              "poisson_reference": {
+                "brier": 0.17986388581993043,
+                "threshold_log_loss": 0.544675028121967,
+                "count_nll": 2.997136418764007,
+                "mae": 3.996098310291858
+              },
+              "lightgbm_poisson": {
+                "brier": 0.17520488667711895,
+                "threshold_log_loss": 0.5366296361917411,
+                "count_nll": 2.9837431553830402,
+                "mae": 3.901172090091838
+              },
+              "lightgbm_negative_binomial": {
+                "brier": 0.17758119847591503,
+                "threshold_log_loss": 0.5417015038308446,
+                "count_nll": 2.9833165547906977,
+                "mae": 3.901172090091838
+              }
+            },
+            "yellow": {
+              "matches": 93,
+              "threshold": 5,
+              "observed": 31,
+              "poisson_reference": {
+                "brier": 0.22836012778142603,
+                "threshold_log_loss": 0.6501314778018481,
+                "count_nll": 2.153156672852702,
+                "mae": 1.7415917818740396
+              },
+              "lightgbm_poisson": {
+                "brier": 0.22477117844918684,
+                "threshold_log_loss": 0.6466732477179152,
+                "count_nll": 2.154941714171397,
+                "mae": 1.6931792999623003
+              },
+              "lightgbm_negative_binomial": {
+                "brier": 0.22418091637613632,
+                "threshold_log_loss": 0.6446342367107557,
+                "count_nll": 2.1450228194469165,
+                "mae": 1.6931792999623003
+              }
+            },
+            "red": {
+              "matches": 93,
+              "threshold": 1,
+              "observed": 15,
+              "poisson_reference": {
+                "brier": 0.1374554179193352,
+                "threshold_log_loss": 0.4500278706332689,
+                "count_nll": 0.4941722175675687,
+                "mae": 0.2878413978494624
+              },
+              "lightgbm_poisson": {
+                "brier": 0.13958858233980492,
+                "threshold_log_loss": 0.46378743372008535,
+                "count_nll": 0.5156322884369423,
+                "mae": 0.2681950065908281
+              },
+              "lightgbm_negative_binomial": {
+                "brier": 0.139405531487991,
+                "threshold_log_loss": 0.46402984529617053,
+                "count_nll": 0.517102515192624,
+                "mae": 0.2681950065908281
+              },
+              "lightgbm_binary": {
+                "brier": 0.14251946901400994,
+                "threshold_log_loss": 0.48065905945209103
+              }
+            },
+            "shots_on_target": {
+              "matches": 93,
+              "threshold": 9,
+              "observed": 56,
+              "poisson_reference": {
+                "brier": 0.23203496177512437,
+                "threshold_log_loss": 0.6565953450955244,
+                "count_nll": 2.524773885362244,
+                "mae": 2.5264673579109065
+              },
+              "lightgbm_poisson": {
+                "brier": 0.24363620058096272,
+                "threshold_log_loss": 0.681836216141401,
+                "count_nll": 2.5805192082453363,
+                "mae": 2.7225465738799848
+              },
+              "gru": {
+                "count_nll": 2.5574149514909843,
+                "brier": 0.2398304113576859
+              },
+              "gru_clusters": {
+                "count_nll": 2.5407736532643015,
+                "brier": 0.24006446245004187
+              }
+            }
+          }
+        },
+        {
+          "train_matches": 786,
+          "calibration_matches": 53,
+          "test_matches": 85,
+          "first_test_cutoff": "2026-05-07T14:00:00+00:00",
+          "last_test_cutoff": "2026-11-07T15:00:00+00:00",
+          "baseline": "Dixon–Coles",
+          "ensemble_lightgbm_weight": 0.8054137977754835,
+          "goals": {
+            "reference": {
+              "log_loss": 0.9536940143338083,
+              "brier": 0.5680696780151816,
+              "rps": 0.2054625501795954,
+              "ece": 0.07528882439935304
+            },
+            "lightgbm": {
+              "log_loss": 0.9706708758646311,
+              "brier": 0.574376802199407,
+              "rps": 0.2114387657068974,
+              "ece": 0.11077584029127241
+            },
+            "ensemble": {
+              "log_loss": 0.9628363088339671,
+              "brier": 0.5696295269502099,
+              "rps": 0.20865253575016232,
+              "ece": 0.12990019390146337
+            },
+            "gru": {
+              "log_loss": 0.9764922556751433,
+              "brier": 0.5798381723197851,
+              "rps": 0.21396570563320197,
+              "ece": 0.05197778941961428
+            },
+            "gru_clusters": {
+              "log_loss": 0.9733791965630186,
+              "brier": 0.5784554914684035,
+              "rps": 0.2134344733731427,
+              "ece": 0.06717704427557218
+            }
+          },
+          "events": {
+            "corners": {
+              "matches": 85,
+              "threshold": 10,
+              "observed": 49,
+              "poisson_reference": {
+                "brier": 0.24629638856469135,
+                "threshold_log_loss": 0.685770629272483,
+                "count_nll": 2.606572421299766,
+                "mae": 2.617906019732734
+              },
+              "lightgbm_poisson": {
+                "brier": 0.2510014120892711,
+                "threshold_log_loss": 0.6956026007301274,
+                "count_nll": 2.633768463267669,
+                "mae": 2.6895870348038007
+              },
+              "lightgbm_negative_binomial": {
+                "brier": 0.2512069522709347,
+                "threshold_log_loss": 0.6959370792556875,
+                "count_nll": 2.632746443360612,
+                "mae": 2.6895870348038007
+              },
+              "gru": {
+                "count_nll": 2.638457247750729,
+                "brier": 0.24343015832066367
+              },
+              "gru_clusters": {
+                "count_nll": 2.649751895871988,
+                "brier": 0.2479072354828936
+              }
+            },
+            "fouls": {
+              "matches": 85,
+              "threshold": 24,
+              "observed": 27,
+              "poisson_reference": {
+                "brier": 0.21058759614320227,
+                "threshold_log_loss": 0.6097359336867939,
+                "count_nll": 3.1064560967480563,
+                "mae": 4.000505620082428
+              },
+              "lightgbm_poisson": {
+                "brier": 0.21012020692760242,
+                "threshold_log_loss": 0.6094118536106897,
+                "count_nll": 3.097793975356783,
+                "mae": 4.038234236947529
+              },
+              "lightgbm_negative_binomial": {
+                "brier": 0.2091600538707543,
+                "threshold_log_loss": 0.6068906394416237,
+                "count_nll": 3.0844603460891538,
+                "mae": 4.038234236947529
+              }
+            },
+            "yellow": {
+              "matches": 85,
+              "threshold": 5,
+              "observed": 21,
+              "poisson_reference": {
+                "brier": 0.18596254300293386,
+                "threshold_log_loss": 0.55922558256507,
+                "count_nll": 2.0819865941708087,
+                "mae": 1.5426354127638315
+              },
+              "lightgbm_poisson": {
+                "brier": 0.19001596499238962,
+                "threshold_log_loss": 0.5664779578997505,
+                "count_nll": 2.0852958790777967,
+                "mae": 1.5772622339677054
+              },
+              "lightgbm_negative_binomial": {
+                "brier": 0.19003860903204556,
+                "threshold_log_loss": 0.5668429850705584,
+                "count_nll": 2.078234621690815,
+                "mae": 1.5772622339677054
+              }
+            },
+            "red": {
+              "matches": 85,
+              "threshold": 1,
+              "observed": 10,
+              "poisson_reference": {
+                "brier": 0.1078329931217494,
+                "threshold_log_loss": 0.3762510383119102,
+                "count_nll": 0.41924411864034794,
+                "mae": 0.260422786311977
+              },
+              "lightgbm_poisson": {
+                "brier": 0.10475487695561495,
+                "threshold_log_loss": 0.357525755619858,
+                "count_nll": 0.403845678568591,
+                "mae": 0.23175334346807003
+              },
+              "lightgbm_negative_binomial": {
+                "brier": 0.10410292067443219,
+                "threshold_log_loss": 0.35627188545644445,
+                "count_nll": 0.4022182051891504,
+                "mae": 0.23175334346807003
+              },
+              "lightgbm_binary": {
+                "brier": 0.10457021853913562,
+                "threshold_log_loss": 0.3557208313659197
+              }
+            },
+            "shots_on_target": {
+              "matches": 85,
+              "threshold": 9,
+              "observed": 64,
+              "poisson_reference": {
+                "brier": 0.19393173969508473,
+                "threshold_log_loss": 0.5745444213849433,
+                "count_nll": 2.7006974614078456,
+                "mae": 2.8655961658548765
+              },
+              "lightgbm_poisson": {
+                "brier": 0.1985546333041415,
+                "threshold_log_loss": 0.5845319130139334,
+                "count_nll": 2.717539425669878,
+                "mae": 2.8709419149157402
+              },
+              "gru": {
+                "count_nll": 2.6799718787184115,
+                "brier": 0.18744732631923652
+              },
+              "gru_clusters": {
+                "count_nll": 2.679843311462768,
+                "brier": 0.18666191127589477
+              }
+            }
+          }
+        }
+      ],
+      "decision": "experimental",
+      "availability": "reconstructed_day_minus_8h_previous_results_next_day_noon",
+      "paired_log_loss": {
+        "lightgbm": {
+          "delta": 0.02265212586498531,
+          "interval95": [
+            -0.022176260164904656,
+            0.06551243568512477
+          ],
+          "candidate": false
+        },
+        "ensemble": {
+          "delta": 0.004365669680809952,
+          "interval95": [
+            -0.017461015200232525,
+            0.023940388759577963
+          ],
+          "candidate": false
+        },
+        "gru": {
+          "delta": 0.03730289299808066,
+          "interval95": [
+            -0.006603456767554739,
+            0.07855338234722943
+          ],
+          "candidate": false
+        },
+        "gru_clusters": {
+          "delta": 0.03433540513454454,
+          "interval95": [
+            -0.005886513910923166,
+            0.07031391906067057
+          ],
+          "candidate": false
+        }
+      },
+      "retrospective_candidate": false
+    },
+    {
+      "competition": "FL1",
+      "historical_matches": 1008,
+      "eligible_matches": 933,
+      "sources": [
+        {
+          "season": 2023,
+          "url": "https://www.football-data.co.uk/mmz4281/2324/F1.csv",
+          "sha256": "ca0a4bf51d5b1ccfd0e1558ea41de6bb829df6c96c759888a87248d296d5adb7"
+        },
+        {
+          "season": 2024,
+          "url": "https://www.football-data.co.uk/mmz4281/2425/F1.csv",
+          "sha256": "fe6ae6a0c30d05f0ac88e0fc4a31452c7203e2b444703dfa941e22f38f20ab63"
+        },
+        {
+          "season": 2025,
+          "url": "https://www.football-data.co.uk/mmz4281/2526/F1.csv",
+          "sha256": "898b7ddcd373cfe955ae353b1a98cf7f1c8757ca10b69d53039f4e098e88f192"
+        },
+        {
+          "season": 2026,
+          "url": "https://www.football-data.co.uk/mmz4281/2627/F1.csv",
+          "sha256": "351303e69ffd3e18a25ac6f06463929faa3db6b86abbf2564709f3c5a9f92f31"
+        }
+      ],
+      "folds": [
+        {
+          "train_matches": 718,
+          "calibration_matches": 44,
+          "test_matches": 96,
+          "first_test_cutoff": "2026-03-06T15:00:00+00:00",
+          "last_test_cutoff": "2026-08-22T14:00:00+00:00",
+          "baseline": "Dixon–Coles",
+          "ensemble_lightgbm_weight": 5.9608609865491405e-06,
+          "goals": {
+            "reference": {
+              "log_loss": 1.0402163307237233,
+              "brier": 0.6283207455296923,
+              "rps": 0.2062556365127682,
+              "ece": 0.0724900656210626
+            },
+            "lightgbm": {
+              "log_loss": 1.0009194103190306,
+              "brier": 0.6039506468304211,
+              "rps": 0.19628103137551575,
+              "ece": 0.07185529088542882
+            },
+            "ensemble": {
+              "log_loss": 1.0402159122508043,
+              "brier": 0.6283204428827757,
+              "rps": 0.20625550317626695,
+              "ece": 0.07248992923560538
+            },
+            "gru": {
+              "log_loss": 1.0215118616219596,
+              "brier": 0.6172171754227863,
+              "rps": 0.20217463718068243,
+              "ece": 0.1896579984708241
+            },
+            "gru_clusters": {
+              "log_loss": 1.02082182129472,
+              "brier": 0.6162279409949916,
+              "rps": 0.2014874662998233,
+              "ece": 0.1552022265439311
+            }
+          },
+          "events": {
+            "corners": {
+              "matches": 96,
+              "threshold": 10,
+              "observed": 56,
+              "poisson_reference": {
+                "brier": 0.2657064510057916,
+                "threshold_log_loss": 0.7253609120655694,
+                "count_nll": 2.7739450288206164,
+                "mae": 2.9168322379874656
+              },
+              "lightgbm_poisson": {
+                "brier": 0.25324762673829987,
+                "threshold_log_loss": 0.6996524513481545,
+                "count_nll": 2.7868342234349144,
+                "mae": 2.838482675480519
+              },
+              "lightgbm_negative_binomial": {
+                "brier": 0.2543322597391595,
+                "threshold_log_loss": 0.7018929119519224,
+                "count_nll": 2.7516740702039146,
+                "mae": 2.838482675480519
+              },
+              "gru": {
+                "count_nll": 2.7928983200371427,
+                "brier": 0.26112776844857283
+              },
+              "gru_clusters": {
+                "count_nll": 2.8003539902768857,
+                "brier": 0.2626912352988548
+              }
+            },
+            "fouls": {
+              "matches": 96,
+              "threshold": 24,
+              "observed": 44,
+              "poisson_reference": {
+                "brier": 0.23884887327516469,
+                "threshold_log_loss": 0.6704658470211822,
+                "count_nll": 3.30174987611691,
+                "mae": 4.811263927576602
+              },
+              "lightgbm_poisson": {
+                "brier": 0.23890278366878018,
+                "threshold_log_loss": 0.6695273931580074,
+                "count_nll": 3.2972075384859347,
+                "mae": 4.757079652115018
+              },
+              "lightgbm_negative_binomial": {
+                "brier": 0.23724882565403957,
+                "threshold_log_loss": 0.6658889733328268,
+                "count_nll": 3.2487953152381834,
+                "mae": 4.757079652115018
+              }
+            },
+            "yellow": {
+              "matches": 96,
+              "threshold": 5,
+              "observed": 25,
+              "poisson_reference": {
+                "brier": 0.19917185887492198,
+                "threshold_log_loss": 0.5884228909730477,
+                "count_nll": 1.9612017885241453,
+                "mae": 1.353597050545497
+              },
+              "lightgbm_poisson": {
+                "brier": 0.20125176648191875,
+                "threshold_log_loss": 0.5932080124944653,
+                "count_nll": 1.9475235705853275,
+                "mae": 1.3421551756129333
+              }
+            },
+            "red": {
+              "matches": 96,
+              "threshold": 1,
+              "observed": 17,
+              "poisson_reference": {
+                "brier": 0.14718806585016495,
+                "threshold_log_loss": 0.4706818663616976,
+                "count_nll": 0.4908667295864306,
+                "mae": 0.3205448076253482
+              },
+              "lightgbm_poisson": {
+                "brier": 0.1488327686085994,
+                "threshold_log_loss": 0.47202840373192895,
+                "count_nll": 0.4946699224320951,
+                "mae": 0.32529819706975976
+              },
+              "lightgbm_negative_binomial": {
+                "brier": 0.14742524444913999,
+                "threshold_log_loss": 0.4689506705450346,
+                "count_nll": 0.5000447476378679,
+                "mae": 0.32529819706975976
+              },
+              "lightgbm_binary": {
+                "brier": 0.1567362061495081,
+                "threshold_log_loss": 0.4904230537419189
+              }
+            },
+            "shots_on_target": {
+              "matches": 96,
+              "threshold": 9,
+              "observed": 53,
+              "poisson_reference": {
+                "brier": 0.25047846072829444,
+                "threshold_log_loss": 0.6942788605212478,
+                "count_nll": 2.5880195933992476,
+                "mae": 2.5767318796425256
+              },
+              "lightgbm_poisson": {
+                "brier": 0.27185204372494237,
+                "threshold_log_loss": 0.7406353950805341,
+                "count_nll": 2.662455530202511,
+                "mae": 2.7255295494393206
+              },
+              "lightgbm_negative_binomial": {
+                "brier": 0.27002380757545186,
+                "threshold_log_loss": 0.7360548608938688,
+                "count_nll": 2.647676525470912,
+                "mae": 2.7255295494393206
+              },
+              "gru": {
+                "count_nll": 2.6498619327623767,
+                "brier": 0.25857535463866904
+              },
+              "gru_clusters": {
+                "count_nll": 2.6355039615792926,
+                "brier": 0.25940924241147845
+              }
+            }
+          }
+        },
+        {
+          "train_matches": 805,
+          "calibration_matches": 54,
+          "test_matches": 73,
+          "first_test_cutoff": "2026-08-27T14:00:00+00:00",
+          "last_test_cutoff": "2026-11-07T15:00:00+00:00",
+          "baseline": "Dixon–Coles",
+          "ensemble_lightgbm_weight": 0.7704845125134616,
+          "goals": {
+            "reference": {
+              "log_loss": 0.993126336263749,
+              "brier": 0.5924700862670859,
+              "rps": 0.2182321667773632,
+              "ece": 0.10268468400349477
+            },
+            "lightgbm": {
+              "log_loss": 0.9735804031977093,
+              "brier": 0.5750547459065715,
+              "rps": 0.20958194152990697,
+              "ece": 0.11658995901232876
+            },
+            "ensemble": {
+              "log_loss": 0.9730837408203038,
+              "brier": 0.5752149297394417,
+              "rps": 0.20975480957368997,
+              "ece": 0.10434737520542231
+            },
+            "gru": {
+              "log_loss": 0.9605495013012286,
+              "brier": 0.5724794006575022,
+              "rps": 0.20928026784673964,
+              "ece": 0.05007639267608454
+            },
+            "gru_clusters": {
+              "log_loss": 0.9630196528774607,
+              "brier": 0.5744234297018264,
+              "rps": 0.20979209010992855,
+              "ece": 0.07677094641643176
+            }
+          },
+          "events": {
+            "corners": {
+              "matches": 73,
+              "threshold": 10,
+              "observed": 29,
+              "poisson_reference": {
+                "brier": 0.22808044567718402,
+                "threshold_log_loss": 0.6487153853962483,
+                "count_nll": 2.4750521540534907,
+                "mae": 2.2504639595564253
+              },
+              "lightgbm_poisson": {
+                "brier": 0.2594759549116525,
+                "threshold_log_loss": 0.7119974042725387,
+                "count_nll": 2.5297728542043507,
+                "mae": 2.469232463141133
+              },
+              "lightgbm_negative_binomial": {
+                "brier": 0.25709227611845425,
+                "threshold_log_loss": 0.7071229776300149,
+                "count_nll": 2.527820315528879,
+                "mae": 2.469232463141133
+              },
+              "gru": {
+                "count_nll": 2.473649703215857,
+                "brier": 0.24064326118406762
+              },
+              "gru_clusters": {
+                "count_nll": 2.490359173559607,
+                "brier": 0.2455966845547449
+              }
+            },
+            "fouls": {
+              "matches": 73,
+              "threshold": 24,
+              "observed": 43,
+              "poisson_reference": {
+                "brier": 0.21337984163731516,
+                "threshold_log_loss": 0.6178983222288748,
+                "count_nll": 3.1387088788000006,
+                "mae": 4.3920542981933695
+              },
+              "lightgbm_poisson": {
+                "brier": 0.2186599457534635,
+                "threshold_log_loss": 0.6280800605847912,
+                "count_nll": 3.135001714496017,
+                "mae": 4.332925279204731
+              },
+              "lightgbm_negative_binomial": {
+                "brier": 0.221418897782392,
+                "threshold_log_loss": 0.6341120152958242,
+                "count_nll": 3.1250829291989466,
+                "mae": 4.332925279204731
+              }
+            },
+            "yellow": {
+              "matches": 73,
+              "threshold": 5,
+              "observed": 18,
+              "poisson_reference": {
+                "brier": 0.19095018807219835,
+                "threshold_log_loss": 0.5701152996680272,
+                "count_nll": 1.9923877369210432,
+                "mae": 1.44789362290479
+              },
+              "lightgbm_poisson": {
+                "brier": 0.19481285466045972,
+                "threshold_log_loss": 0.5740200079494142,
+                "count_nll": 1.9879434836325258,
+                "mae": 1.4732025698129856
+              }
+            },
+            "red": {
+              "matches": 73,
+              "threshold": 1,
+              "observed": 9,
+              "poisson_reference": {
+                "brier": 0.11634723134639458,
+                "threshold_log_loss": 0.400844853094608,
+                "count_nll": 0.41268659996597784,
+                "mae": 0.2826889233954451
+              },
+              "lightgbm_poisson": {
+                "brier": 0.1189993545235994,
+                "threshold_log_loss": 0.4121326874137892,
+                "count_nll": 0.4241074258997543,
+                "mae": 0.28109550842469494
+              },
+              "lightgbm_negative_binomial": {
+                "brier": 0.11749012627723526,
+                "threshold_log_loss": 0.4081384592420136,
+                "count_nll": 0.42397958012501197,
+                "mae": 0.28109550842469494
+              },
+              "lightgbm_binary": {
+                "brier": 0.12080633580210486,
+                "threshold_log_loss": 0.4169829726828091
+              }
+            },
+            "shots_on_target": {
+              "matches": 73,
+              "threshold": 9,
+              "observed": 42,
+              "poisson_reference": {
+                "brier": 0.24114536772120154,
+                "threshold_log_loss": 0.6750097646938887,
+                "count_nll": 2.600493328476566,
+                "mae": 2.6482333234067896
+              },
+              "lightgbm_poisson": {
+                "brier": 0.22367990136832422,
+                "threshold_log_loss": 0.6391573383057252,
+                "count_nll": 2.5762585453611546,
+                "mae": 2.489208391650235
+              },
+              "lightgbm_negative_binomial": {
+                "brier": 0.22508733807555895,
+                "threshold_log_loss": 0.6422126535717493,
+                "count_nll": 2.576683572980986,
+                "mae": 2.489208391650235
+              },
+              "gru": {
+                "count_nll": 2.5854166147552666,
+                "brier": 0.24859012986750104
+              },
+              "gru_clusters": {
+                "count_nll": 2.6111108503025235,
+                "brier": 0.25383057808003046
+              }
+            }
+          }
+        }
+      ],
+      "decision": "experimental",
+      "availability": "reconstructed_day_minus_8h_previous_results_next_day_noon",
+      "paired_log_loss": {
+        "lightgbm": {
+          "delta": -0.030765428832375152,
+          "interval95": [
+            -0.0676065289119629,
+            0.0052491284603738055
+          ],
+          "candidate": false
+        },
+        "ensemble": {
+          "delta": -0.00865769018208116,
+          "interval95": [
+            -0.024910344812427553,
+            0.007546680797721103
+          ],
+          "candidate": false
+        },
+        "gru": {
+          "delta": -0.02469667447356981,
+          "interval95": [
+            -0.06041718389292612,
+            0.011381331865256753
+          ],
+          "candidate": false
+        },
+        "gru_clusters": {
+          "delta": -0.024021661493392608,
+          "interval95": [
+            -0.05747237374449391,
+            0.008892714811783485
+          ],
+          "candidate": false
+        }
+      },
+      "retrospective_candidate": false
+    }
+  ]
+}
